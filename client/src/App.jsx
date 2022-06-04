@@ -11,6 +11,12 @@ import {
 // * Import components here
 import { Navbar } from './components'
 
+/* 
+  ! Para crear una nueva ruta ejemplo:
+  ? <Route path="/products" element={<Products/>} />
+  !Recuerden importal la pagina arriba antes
+*/
+
 function App() {
 
   return (
