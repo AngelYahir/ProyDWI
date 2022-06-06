@@ -1,0 +1,2 @@
+
+var mongoose = require('mongoose');var Schema = mongoose.Schema;var customerServicceSchema = new Schema({user: {type: objectId, required: true, ref: 'userSchema'},issue: {type: String},description: {type: String}}); 
