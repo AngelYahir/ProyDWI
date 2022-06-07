@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +22,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "jsdoc": "^3.6.10",
     "nodemon": "^2.0.16"
   }
 }

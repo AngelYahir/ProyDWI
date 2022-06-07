@@ -1,0 +1,2 @@
+
+var mongoose = require('mongoose');var Schema = mongoose.Schema;var cartSchema = new Schema({product: {type: Schema.Types.ObjectId, required: true, ref: 'productSchema'},user: {type: objectId, required: true, ref: 'userSchema'}}); 

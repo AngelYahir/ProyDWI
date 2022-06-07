@@ -8,7 +8,9 @@ import {
   NotFound 
 } from './pages'
 
-// * Import components here
+/**
+ * This is import for components
+ */
 import { Navbar } from './components'
 
 function App() {
