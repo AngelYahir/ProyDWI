@@ -34,7 +34,7 @@ export function Home() {
       </div><font></font>
     </div>
       <p>
-      <div class="card-deck mt-4">
+      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-13 sm:px-3 lg:max-w-7xl lg:px-8">
           <div class="card card-compact w-96 bg-base-100 shadow-xl">
           <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
             <div class="card-body">
@@ -47,6 +47,46 @@ export function Home() {
         </div>
       </div>
     </p>
-</>
+    <p>
+    <div className="max-w-2xl mx-auto py-16 px-4 sm:py-10 sm:px-3 lg:max-w-7xl lg:px-8">
+          <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Shoes!</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div class="card-actions justify-end">
+              <button class="btn btn-primary">Buy Now</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </p>
+    <p>
+      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-10 sm:px-3 lg:max-w-7xl lg:px-8">
+          <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Shoes!</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div class="card-actions justify-end">
+              <button class="btn btn-primary">Buy Now</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </p>
+    
+    <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"></div>
+    <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Shoes!</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div class="card-actions justify-end">
+              <button class="btn btn-primary">Buy Now</button>
+              </div>
+          </div>
+      </div>
+    </>
   )
 }
