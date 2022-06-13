@@ -5,7 +5,8 @@ import { Routes, Route } from 'react-router-dom'
 // * Import pages here
 import { 
   Home, 
-  NotFound 
+  NotFound,
+  Categories 
 } from './pages'
 
 // * Import components here
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="*" element={<NotFound/>} />
+        <Route path="/categories" element={<Categories/>} />
       </Routes>
     </>
   )
