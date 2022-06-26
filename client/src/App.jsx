@@ -1,4 +1,5 @@
 import './App.css'
+import './assets/css/styles.css'
 // * Import Router-dom
 import { Routes, Route } from 'react-router-dom'
 
@@ -6,18 +7,22 @@ import { Routes, Route } from 'react-router-dom'
 import { 
   Home, 
   NotFound,
-  Categories 
+  Categories ,
+  Login,
+  SignUp,
+  CustomerService,
+  Products
 } from './pages'
 
 /**
  * This is import for components
  */
-import { Navbar } from './components'
+import { Navbar, Footer } from './components'
 
 /* 
   ! Para crear una nueva ruta ejemplo:
   ? <Route path="/products" element={<Products/>} />
-  !Recuerden importal la pagina arriba antes
+  ! Recuerden importar la pagina arriba antes
 */
 
 function App() {
@@ -29,7 +34,9 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="*" element={<NotFound/>} />
         <Route path="/categories" element={<Categories/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
+      <Footer/>
     </>
   )
 }

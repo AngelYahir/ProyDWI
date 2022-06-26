@@ -1,3 +1,7 @@
 export {Home} from './Home'
 export {NotFound} from './NotFound'
 export {Categories} from './Categories'
+export { Login } from './Login'
+export { CustomerService } from './CustomerService'
+export { SignUp } from './SignUp'
+export { Products } from './Products'
