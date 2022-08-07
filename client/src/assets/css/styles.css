@@ -1,9 +1,7 @@
-.hero-image
-{
+.hero-image {
     background-image: url('../images/heroSale.jpg');
 }
 
-.login-banner
-{
+.login-banner {
     background-image: url("../images/loginbanner.jpg");
 }

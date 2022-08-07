@@ -11,9 +11,9 @@ toast.configure();
 
 function App() {
   const [product] = React.useState({
-    name: "Tesla Roadster",
+    name: "",
     price: 64998.67,
-    description: "Cool car"
+    description: ""
   });
 
   async function handleToken(token, addresses) {
@@ -89,7 +89,7 @@ function App() {
         <h3>On Sale · ${product.price}</h3>
       </div>
       <StripeCheckout
-        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+        stripeKey="sk_test_51LU06yLXVwiGJcFmtczGECPZ7QomtQMmEaId16MQ9oGonP2RSdmDRuakdoooIkVFdeNdz9kPpnMB3oYdhPISjIiJ00uaZhH6aH"
         token={handleToken}
         amount={product.price * 100}
         name="Tesla Roadster"
