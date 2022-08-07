@@ -37,7 +37,7 @@ function App() {
         <h3>On Sale · ${product.price}</h3>
       </div>
       <StripeCheckout
-        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+        stripeKey="pk_test_51LU06yLXVwiGJcFmsOnwIpzO1YjAfCSjZBYikvddrzaGISlBQojV6pHCLQFjKbrieucZ4sa9GEW97QLpE2kfHSYV00GQk5wSYD"
         token={handleToken}
         amount={product.price * 100}
         name="Tesla Roadster"
