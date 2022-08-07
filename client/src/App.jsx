@@ -36,7 +36,7 @@ function App() {
         <Route path="*" element={<NotFound/>} />
         <Route path="/categories" element={<Categories/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/stripeconst" element={<StripeConst/>} />
+        <Route path="/stripe" element={<Stripe/>} />
       </Routes>
       <Footer/>
     </>
