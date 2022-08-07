@@ -12,6 +12,7 @@ import {
   SignUp,
   CustomerService,
   Products,
+  Stripe
 } from './pages'
 
 /**
@@ -35,6 +36,7 @@ function App() {
         <Route path="*" element={<NotFound/>} />
         <Route path="/categories" element={<Categories/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/stripeconst" element={<StripeConst/>} />
       </Routes>
       <Footer/>
     </>
