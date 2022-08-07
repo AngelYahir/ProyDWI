@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "bootswatch/dist/lux/bootstrap.min.css";
-import "./App.css";
 
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -56,9 +55,9 @@ const CheckoutForm = () => {
     <form className="card card-body" onSubmit={handleSubmit}>
       {/* Product Information */}
       <img
-        src="https://www.corsair.com/medias/sys_master/images/images/h80/hdd/9029904465950/-CH-9109011-ES-Gallery-K70-RGB-MK2-01.png"
-        alt="Corsair Gaming Keyboard RGB"
-        className="img-fluid"
+        src=""
+        alt=""
+        className=""
       />
 
       <h3 className="text-center my-2">Price: 100$</h3>
@@ -81,7 +80,7 @@ const CheckoutForm = () => {
   );
 };
 
-function App() {
+function Stripe() {
   return (
     <Elements stripe={stripePromise}>
       <div className="container p-4">
