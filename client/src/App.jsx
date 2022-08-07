@@ -12,8 +12,6 @@ import {
   SignUp,
   CustomerService,
   Products,
-  ShoppingCart,
-  Profile
 } from './pages'
 
 /**
@@ -37,8 +35,6 @@ function App() {
         <Route path="*" element={<NotFound/>} />
         <Route path="/categories" element={<Categories/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/shoppingcart" element={<ShoppingCart/>} />
-        <Route path="profile" element={<Profile/>} />
       </Routes>
       <Footer/>
     </>

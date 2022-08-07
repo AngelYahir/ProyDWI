@@ -1,10 +1,9 @@
-import React from 'react'
-
-export default function ShoppingCart() {
-const [open, setOpen] = useState(true)
-
+import { Fragment, useState } from 'react'
+  
+  export default function Products() {
+    const [open, setOpen] = useState(true)
+  
     return (
-    <>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -126,6 +125,5 @@ const [open, setOpen] = useState(true)
           </div>
         </Dialog>
       </Transition.Root>
-    </>
     )
-}
+  }
