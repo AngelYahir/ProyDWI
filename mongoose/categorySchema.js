@@ -1,2 +1,0 @@
-
-var mongoose = require('mongoose');var Schema = mongoose.Schema;var categorySchema = new Schema({name: {type: String},productSchema: {type: Schema.Types.ObjectId, required: true, ref: 'productSchema'}}); 

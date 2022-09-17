@@ -1,6 +1,7 @@
-import { Schema, model } from "mongoose"
+import mongoose from "mongoose"
+import bcrypt from 'bcryptjs'
 
-const userSchema = new Schema ({
+const userSchema = new mongoose.Schema ({
     name: {
         type: String,
         required: true
@@ -16,7 +17,6 @@ const userSchema = new Schema ({
     },
     password: {
         type: String,
-        required: true
     },
     contact: {
         phone: [{
@@ -32,17 +32,22 @@ const userSchema = new Schema ({
             country: String
         }]
     },
-    profilePicture:{
-        imgUrl: String,
-        public_id: String
-    },
     rol: [{
-        ref: 'Roles',
-        type: Schema.Types.ObjectId
+        ref: 'Role',
+        type: mongoose.Schema.Types.ObjectId
     }]
 }, {
     timestamps: true,
     versionKey: false
 })
 
-export default model('User', userSchema)
+userSchema.statics.encryptPassword = async (password) => {
+    const salt =  await bcrypt.genSalt(10)
+    return await bcrypt.hash(password, salt)
+}
+
+userSchema.statics.comparePass = async (password, receivedPassword) => {
+    return await bcrypt.compare(password, receivedPassword)
+}
+
+export default mongoose.model('User', userSchema)

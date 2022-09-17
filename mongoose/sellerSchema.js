@@ -1,3 +1,0 @@
-
-var mongoose = require('mongoose');var Schema = mongoose.Schema;var sellerSchema = new Schema({user: {type: objectId, required: true, ref: 'userSchema'},sellerName: {type: String, required: true},profilePicture: {
-image_url: {type: String},public_id: {type: String}},sellerRole: {type: Schema.Types.ObjectId, required: true, ref: 'sellerRoleSchema'},opinion: {type: Schema.Types.ObjectId, required: true, ref: 'opinion'},product: {type: Schema.Types.ObjectId, required: true, ref: 'productSchema'}}); 

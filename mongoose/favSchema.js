@@ -1,2 +1,0 @@
-
-var mongoose = require('mongoose');var Schema = mongoose.Schema;var favSchema = new Schema({product: {type: Schema.Types.ObjectId, required: true, ref: 'productSchema'},user: {type: Schema.Types.ObjectId, required: true, ref: 'userSchema'}}); 

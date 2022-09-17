@@ -1,7 +1,12 @@
 import './App.css'
 import './assets/css/styles.css'
+
 // * Import Router-dom
 import { Routes, Route } from 'react-router-dom'
+
+// * Import context here
+
+import { useShop } from './context/shopContext'
 
 // * Import pages here
 import { 
@@ -11,7 +16,11 @@ import {
   Login,
   SignUp,
   CustomerService,
-  Products
+  Products,
+  Product,
+  Profile,
+  Success,
+  Checkout
 } from './pages'
 
 /**
@@ -25,16 +34,41 @@ import { Navbar, Footer } from './components'
   ! Recuerden importar la pagina arriba antes
 */
 
+
+
 function App() {
+
+
 
   return (
     <>
       <Navbar/>
       <Routes>
+        //* Home page
         <Route path="/" element={<Home/>} />
+
+        //* Auth pages
+        <Route path="/inicio-sesion" element={<Login/>} />
+        <Route path="/registro" element={<SignUp/>} />
+
+        //* Protect Pages
+
+        //* User pages
+        <Route path="/perfil" element={<Profile/>} />
+        <Route path='/success' element={<Success/>}/>
+
+
+        //* Products Pages
+        <Route path="/categorias" element={<Categories/>} />
+        <Route path="/servicios" element={<CustomerService/>} />
+        <Route path="/productos" element={<Products/>} />
+        <Route path="/productos/:id" element={<Product/>} />
+
+        <Route path='/checkout' element={<Checkout/>}/>
+
+        //* 404 error pages
         <Route path="*" element={<NotFound/>} />
-        <Route path="/categories" element={<Categories/>} />
-        <Route path="/login" element={<Login/>} />
+
       </Routes>
       <Footer/>
     </>

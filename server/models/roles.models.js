@@ -1,9 +1,9 @@
-import { Schema, model } from "mongoose"
+import mongoose from "mongoose"
 
-const roleSchema = new Schema({
-    name: {typpe: String}
+const roleSchema = new mongoose.Schema({
+    name: {type: String}
 }, {
     versionKey: false,
 })
 
-export default model('Roles', roleSchema)
+export default mongoose.model('Role', roleSchema)
