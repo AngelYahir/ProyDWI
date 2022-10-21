@@ -58,7 +58,7 @@ function CheckoutForm() {
         elements,
         confirmParams: {
           // Make sure to change this to your payment completion page
-          return_url: "http://localhost:3000/checkout",
+          return_url: "/",
         },
       });
   
@@ -96,7 +96,7 @@ export function Checkout({subtotal}) {
 
     useEffect(() => {
       // Create PaymentIntent as soon as the page loads
-      fetch("http://localhost:4000/stripe", {
+      fetch("https://4000-angelyahir-proydwi-w4lqixwf75x.ws-us72.gitpod.io/stripe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ price: 10000}),
