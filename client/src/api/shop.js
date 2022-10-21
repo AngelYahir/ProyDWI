@@ -12,3 +12,11 @@ export const getCategories = async () => {
 export const getProduct = async (id) => {
     return await axios.get(baseURL + '/product/' + id, {withCredentials: true})
 }
+
+export const addOpinion = async (data) => {
+    return await axios.post(baseURL+'/products/addOpinion', data)
+}
+
+export const getOpinions = async (id) => {
+    return await axios.get(baseURL+'/products/getOpinions/'+id)
+}

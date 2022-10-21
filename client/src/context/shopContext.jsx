@@ -1,6 +1,6 @@
 import React from 'react'
 import { createContext, useContext, useState, useEffect } from "react";
-import { getProducts, getCategories, getProduct } from '../api/shop';
+import { getProducts, getCategories, getProduct, getOpinions, addOpinion } from '../api/shop';
 
 
 export const shopsContext = createContext()
@@ -31,13 +31,25 @@ export function ShopContext({children}) {
       return res.data
     }
 
+    const getProdOpinion = async (id) => {
+      const res = await getOpinions(id)
+      return res.data
+    }
+
+    const addProdOpinion = async (data) => {
+      const res = await addOpinion(data)
+      return res
+    }
+
 
 
   return (
     <shopsContext.Provider value={{
       products,
       categories,
-      getOneProd
+      getOneProd,
+      getProdOpinion,
+      addProdOpinion
     }}>
         {children}
     </shopsContext.Provider>
