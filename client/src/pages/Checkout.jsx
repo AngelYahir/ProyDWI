@@ -90,16 +90,16 @@ function CheckoutForm() {
     );
 }
 
-export function Checkout({subtotal}) {
+export function Checkout() {
 
     const [clientSecret, setClientSecret] = useState("");
 
     useEffect(() => {
       // Create PaymentIntent as soon as the page loads
-      fetch("https://4000-angelyahir-proydwi-w4lqixwf75x.ws-us72.gitpod.io/stripe", {
+      fetch("http://localhost:4000/stripe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ price: 10000}),
+        body: JSON.stringify({ price: 1000}),
       })
         .then((res) => res.json())
         .then((data) => setClientSecret(data.clientSecret));

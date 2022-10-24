@@ -29,7 +29,7 @@ routers.get('/categories/:id', prodCtrl.getProdByCat)
 
 // ? Opinion Routes
 routers.get('/opinions',[verifyToken, isModerator], prodCtrl.getOpinions)
-routers.post('/opinions', verifyToken, prodCtrl.addOpinion)
+routers.post('/opinions', prodCtrl.addOpinion)
 routers.delete('/opinions/:id', [verifyToken, isModerator], prodCtrl.dltOpinion)
 routers.get('/opinions/product/:id', prodCtrl.getProdOpinion)
 routers.get('/product/opinions/:id', prodCtrl.getOpinionProd)

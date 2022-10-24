@@ -256,7 +256,8 @@ export const getProdOpinion = async (req, res) => {
 export const getOpinionProd = async (req, res) => {
     try {
         const { id } = req.params
-        const opinions = await Opinion.find({product_id: {$in: id}})
+        console.log(id)
+        const opinions = await Opinion.find({product_id: {$in: id}}).sort({updatedAt: -1})
         if(!opinions) return res.status(404).json('No opinion found')
 
         return res.status(200).json(opinions)

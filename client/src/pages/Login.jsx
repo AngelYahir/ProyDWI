@@ -15,8 +15,6 @@ export function Login({session}) {
 		password: ''
 	})
 
-
-
 	const handleChange = ({target: {name, value}}) =>
 		setUser({...user, [name]: value})
 

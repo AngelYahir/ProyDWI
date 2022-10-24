@@ -32,8 +32,8 @@ export function ShopContext({children}) {
     }
 
     const getProdOpinion = async (id) => {
-      const res = await getOpinions(id)
-      return res.data
+      const resO = await getOpinions(id)
+      return resO.data
     }
 
     const addProdOpinion = async (data) => {

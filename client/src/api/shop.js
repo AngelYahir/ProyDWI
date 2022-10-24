@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = 'https://4000-angelyahir-proydwi-w4lqixwf75x.ws-us72.gitpod.io'
+const baseURL = 'http://localhost:4000'
 
 export const getProducts = async () => {
     return await axios.get(baseURL + '/products', {withCredentials: true})
@@ -14,9 +14,9 @@ export const getProduct = async (id) => {
 }
 
 export const addOpinion = async (data) => {
-    return await axios.post(baseURL+'/products/addOpinion', data)
+    return await axios.post(baseURL+'/opinions', data)
 }
 
 export const getOpinions = async (id) => {
-    return await axios.get(baseURL+'/products/getOpinions/'+id)
+    return await axios.get(baseURL+'/product/opinions/'+id)
 }
