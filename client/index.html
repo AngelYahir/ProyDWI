@@ -2,9 +2,21 @@
 <html lang="en" data-theme="cupcake">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="icon" type="image/svg+xml" href="/logo512.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0cc0d9">
+    <meta name="description" content="G-Market pwa app">
+    <link rel="apple-touch-icon" href="/logo512.png" sizes="512x512">
+    <link rel="mask-icon" href="/maskable.png" color="#FFFFFF">
+    <link rel="manifest" href="/manifest.json">
+    <title>G-Market</title>
+    <script>
+      if('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        })
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

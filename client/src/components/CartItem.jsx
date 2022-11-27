@@ -1,5 +1,6 @@
 import React from 'react'
 import { Fragment, useState } from 'react'
+import {Link} from 'react-router-dom'
 
 export function CartItem(product) {
 
@@ -21,7 +22,7 @@ export function CartItem(product) {
                 <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
                         <h3>
-                            <a href={product.product.href}> {product.product.name} </a>
+                            <Link to={product.product.href}> {product.product.name} </Link>
                         </h3>
                         <p className="ml-4">{product.product.price}</p>
                     </div>

@@ -48,23 +48,23 @@ function App() {
         <Route path="/" element={<Home/>} />
 
         //* Auth pages
-        <Route path="/inicio-sesion" element={<Login/>} />
-        <Route path="/registro" element={<SignUp/>} />
+        <Route path="/signin" element={<Login/>} />
+        <Route path="/signup" element={<SignUp/>} />
 
         //* Protect Pages
 
         //* User pages
-        <Route path="/perfil" element={<Profile/>} />
-        <Route path='/success' element={<Success/>}/>
+        <Route path="/profile" element={<Profile/>} />
+        <Route path='/success/:id' element={<Success/>}/>
 
 
         //* Products Pages
         <Route path="/categorias" element={<Categories/>} />
-        <Route path="/servicios" element={<CustomerService/>} />
-        <Route path="/productos" element={<Products/>} />
-        <Route path="/productos/:id" element={<Product/>} />
+        <Route path="/customer-services" element={<CustomerService/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/product/:id" element={<Product/>} />
 
-        <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/checkout/:id' element={<Checkout/>}/>
 
         //* 404 error pages
         <Route path="*" element={<NotFound/>} />

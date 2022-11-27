@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { categories } from '../data/Data'
+import {Link} from 'react-router-dom'
 
 export function Categories() {
   return (
@@ -19,10 +20,10 @@ export function Categories() {
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500">
-                  <a href="">
+                  <Link to="">
                     <span className="absolute inset-0" />
                     {category.category}
-                  </a>
+                  </Link>
                 </h3>
               </div>
             ))}

@@ -15,7 +15,7 @@ routers.post('/stripe', stripeCheck)
 
 // ? Products Routers
 routers.get('/products', prodCtrl.getProds)
-routers.post('/products', verifyToken, prodCtrl.addProd)
+routers.post('/products', prodCtrl.addProd)
 routers.put('/products/:id', verifyToken, prodCtrl.updProd)
 routers.delete('/products/:id', verifyToken, prodCtrl.dltProduct)
 routers.get('/product/:id', prodCtrl.getProduct)

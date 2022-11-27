@@ -1,133 +1,123 @@
 import React, { useState, useEffect } from "react";
+import { useShop } from '../context/shopContext'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements, PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import '../assets/css/stripe.css'
+import axios from "axios";
 
-const stripePromise = loadStripe('pk_test_51LRRJrL3LTC4xVg3jfQPcu85BuTEaCuTwN4uCJ9oAWkJuICTSbTkiJO12CFqUD6mbV4XjjCzOM8PI51O1pQr3VcY00njusunFU')
+const stripePromise = loadStripe('pk_test_51IPd6xG3jRLaAqrOZJhSs6zeAhWmh2bEmzl8fMYfjCYpSp024GLs0xadWNUXCc9BNfGhVQfDtKjRMUH1PbDrQ9Oi00DymNqLPT')
 
 function CheckoutForm() {
-    const stripe = useStripe();
-    const elements = useElements();
-  
-    const [message, setMessage] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-  
-    useEffect(() => {
-      if (!stripe) {
-        return;
+  const stripe = useStripe();
+  const elements = useElements();
+  const params = useParams()
+  const navigate = useNavigate()
+  const { getOneProd } = useShop()
+
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [prod, setProd] = useState({
+    id: params.id,
+    name: "",
+    description: "",
+    images: "",
+    price: "",
+    seller: ""
+  })
+
+  useEffect(() => {
+    (async () => {
+      if (params.id) {
+        const prod = await getOneProd(params.id)
+        setProd({
+          id: params.id,
+          name: prod.name,
+          description: prod.description,
+          images: prod.images.url,
+          price: prod.price.$numberDecimal,
+          seller: prod.seller
+        })
       }
-  
-      const clientSecret = new URLSearchParams(window.location.search).get(
-        "payment_intent_client_secret"
-      );
-  
-      if (!clientSecret) {
-        return;
+    })();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+    setIsLoading(true);
+
+    if (!error) {
+      const { id } = paymentMethod
+      try {
+        const { data } = await axios.post(
+          'http://localhost:4000/stripe',
+          {
+            id,
+            amount: prod.price * 100,
+            desc: prod.name
+          }
+        )
+        navigate('/success/'+params.id)
+      } catch (error) {
+        console.log(error)
       }
-  
-      stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-        switch (paymentIntent.status) {
-          case "succeeded":
-            setMessage("Payment succeeded!");
-            break;
-          case "processing":
-            setMessage("Your payment is processing.");
-            break;
-          case "requires_payment_method":
-            setMessage("Your payment was not successful, please try again.");
-            break;
-          default:
-            setMessage("Something went wrong.");
-            break;
-        }
-      });
-    }, [stripe]);
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      if (!stripe || !elements) {
-        // Stripe.js has not yet loaded.
-        // Make sure to disable form submission until Stripe.js has loaded.
-        return;
-      }
-  
-      setIsLoading(true);
-  
-      const { error } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          // Make sure to change this to your payment completion page
-          return_url: "/",
-        },
-      });
-  
-      // This point will only be reached if there is an immediate error when
-      // confirming the payment. Otherwise, your customer will be redirected to
-      // your `return_url`. For some payment methods like iDEAL, your customer will
-      // be redirected to an intermediate site first to authorize the payment, then
-      // redirected to the `return_url`.
-      if (error.type === "card_error" || error.type === "validation_error") {
-        setMessage(error.message);
-      } else {
-        setMessage("An unexpected error occurred.");
-      }
-  
-      setIsLoading(false);
-    };
-  
-    return (
-      <form id="payment-form" onSubmit={handleSubmit}>
-        <PaymentElement id="payment-element" />
-        <button disabled={isLoading || !stripe || !elements} id="submit">
-          <span id="button-text">
-            {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-          </span>
-        </button>
-        {/* Show any error or success messages */}
-        {message && <div id="payment-message">{message}</div>}
-      </form>
-    );
+      setIsLoading(false)
+    }
+  };
+
+  console.log(!stripe || isLoading)
+
+  return (
+    <>
+      <div className="hero   min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row">
+          <img src={prod.images} className="max-w-xs rounded-lg shadow-2xl" />
+          <div className="ml-8 grid justify-items-center">
+            <h1 className="text-5xl font-bold">{prod.name}</h1>
+            <h1 className="text-5xl mt-5 mb-5">${prod.price}</h1>
+            <form id="payment-form mt-5" onSubmit={handleSubmit}>
+              <CardElement id="payment-element" />
+              <button className="btn btn-primary w-36 mt-2" disabled={isLoading || !stripe || !elements} id="submit">
+                <span id="button-text">
+                  {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+                </span>
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </>
+  );
 }
 
 export function Checkout() {
 
-    const [clientSecret, setClientSecret] = useState("");
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    appearance,
+  };
 
-    useEffect(() => {
-      // Create PaymentIntent as soon as the page loads
-      fetch("http://localhost:4000/stripe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ price: 1000}),
-      })
-        .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret));
-    }, []);
-  
-    const appearance = {
-      theme: 'stripe',
-    };
-    const options = {
-      clientSecret,
-      appearance,
-    };
-
-
+  if (localStorage.getItem('user')) {
     return (
-        <>
-            <div className="root">
-                <div className="stripeCont">
-                    <div className="App">
-                        {clientSecret && (
-                            <Elements options={options} stripe={stripePromise}>
-                                <CheckoutForm />
-                            </Elements>
-                        )}
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+      <Elements options={options} stripe={stripePromise}>
+      <CheckoutForm />
+    </Elements>
+    )
+  }
+
+  return (
+    <>
+      <h1>Nothing here </h1>
+    </>
+  );
 
 }

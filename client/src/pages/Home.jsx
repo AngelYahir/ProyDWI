@@ -34,7 +34,7 @@ export function Home() {
     return(
       <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
       {products.slice(0,8).map((prod) => (
-        <Link to={`/productos/${prod._id}`}>
+        <Link to={`/product/${prod._id}`} key={prod._id}>
           <ProductsList key={prod._id} product={prod} />
         </Link>
       ))}
@@ -54,16 +54,17 @@ export function Home() {
             <p className='text-2xl'>Compra - Venta</p>
             <h1 className='py-3 text-5xl md:text-7xl font-bold'>G-Market</h1>
             <p className='text-2xl'>Una nueva experiencia en linea</p>
-            <Link to='/productos'>
+            <Link to='/products'>
               <button className=' py-3 px-6 sm:w-[60%] my-4 btn btn-primary'>Explorar</button>
             </Link>
           </div>
-          <img src={heroImg} className="max-w-lg ml-5" />
+          <img src={heroImg} className="max-w-xs sm:max-w-sm ml-5" />
         </div>
       </div>
 
       <Slide />
 
+      {/*
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Categorias</h2>
@@ -88,7 +89,7 @@ export function Home() {
           </div>
           
         </div>    
-      </div> 
+      </div> */}
 
 
       <div className="bg-white">
@@ -96,7 +97,7 @@ export function Home() {
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Más comprados</h2>
 
           <div className="w-full flex-none md:w-auto md:pl-6 mt-1 md:mt-0 ml-auto text-teal-600 text-sm font-medium">
-            <a className="hover:text-teal-800 cursor-pointer">Ver más productos</a>
+            <Link to='/products' className="hover:text-teal-800 cursor-pointer">Ver más productos</Link>
           </div>
           {renderProducts()}
         </div>
@@ -113,15 +114,15 @@ export function Home() {
             <p className="mb-5">Comienza a comprar o vender de la manera más sencilla!</p>
             {!localStorage.getItem('isAuthenticated')
               ? <Link to='/inicio-sesion'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Vamos!</button> </Link>
-              : <Link to='/productos'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Vamos!</button> </Link>
+              : <Link to='/products'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Vamos!</button> </Link>
             }
           </div>
         </div>
       </div>
 
+{/*
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-         
 
           <div className="w-full grid-cols-3 md:w-auto md:pl-6 mt-1 md:mt-0 ml-auto text-teal-600 text-sm font-medium">
 
@@ -137,7 +138,7 @@ export function Home() {
           </div>
         </div>
       </div>
-
+            */}
     </>
   )
 }

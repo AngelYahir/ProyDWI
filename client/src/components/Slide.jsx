@@ -24,28 +24,34 @@ export function Slide() {
 
   const slides = [
     {
+      id: 1,
       image: hero1,
-      rute: '/category'
+      rute: '/products'
     },
     {
+      id: 2,
       image: hero2,
-      rute: '/category'
+      rute: '/products'
     },
     {
+      id: 3,
       image: hero3,
-      rute: '/category'
+      rute: '/products'
     },
     {
+      id: 4,
       image: hero4,
-      rute: '/category'
+      rute: '/products'
     },
     {
+      id: 5,
       image: hero5,
-      rute: '/category'
+      rute: '/products'
     },
     {
+      id: 6,
       image: hero6,
-      rute: '/category'
+      rute: '/products'
     },
   ]
 
@@ -66,7 +72,7 @@ export function Slide() {
         className="mySwiper"
       >
         {slides.map((slider) => (
-          <SwiperSlide>
+          <SwiperSlide key={slider.id}>
             <Link to={slider.rute}>
               <img src={slider.image} alt="" />
             </Link>

@@ -13,10 +13,9 @@ export function ProductsList({product}) {
         <div className="mt-4 flex justify-between">
           <div>
             <h3 className="text-sm text-gray-700">
-              <a>
                 <span aria-hidden="true" className="absolute inset-0" />
                 {product.name}
-              </a>
+
             </h3>
           </div>
           <p className="text-sm font-medium text-gray-900">${product.price.$numberDecimal}</p>
