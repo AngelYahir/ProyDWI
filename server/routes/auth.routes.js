@@ -6,9 +6,9 @@ import router from './user.routes.js'
 
 const routers = Router()
 
-routers.post('/login', signIn)
-routers.post('/register', [checkExistingUser], signUp)
-router.get('/logout', verifyToken, logout)
-router.get('/userInfo', verifyToken, getUserInfo)
+routers.post('/api/login', signIn)
+routers.post('/api/register', [checkExistingUser], signUp)
+router.get('/api/logout', verifyToken, logout)
+router.get('/api/userInfo', verifyToken, getUserInfo)
 
 export default routers

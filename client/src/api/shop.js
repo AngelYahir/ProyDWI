@@ -1,22 +1,21 @@
 import axios from "axios";
-const baseURL = 'http://147.182.201.188:4000'
 
 export const getProducts = async () => {
-    return await axios.get(baseURL + '/products', {withCredentials: true})
+    return await axios.get('/api/products', {withCredentials: true})
 }
 
 export const getCategories = async () => {
-    return await axios.get(baseURL + '/categories', {withCredentials: true})
+    return await axios.get('/api/categories', {withCredentials: true})
 }
 
 export const getProduct = async (id) => {
-    return await axios.get(baseURL + '/product/' + id, {withCredentials: true})
+    return await axios.get('/api/product/' + id, {withCredentials: true})
 }
 
 export const addOpinion = async (data) => {
-    return await axios.post(baseURL+'/opinions', data)
+    return await axios.post('/api/opinions', data)
 }
 
 export const getOpinions = async (id) => {
-    return await axios.get(baseURL+'/product/opinions/'+id)
+    return await axios.get('/api/product/opinions/'+id)
 }

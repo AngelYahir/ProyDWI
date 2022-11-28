@@ -6,7 +6,7 @@ import { stripeCheck } from '../controllers/stripe.controller.js'
 const routers = Router()
 
 
-routers.get('/', (req, res) => {
+routers.get('/api', (req, res) => {
     res.json('This is not the API you are looking for')
 })
 
@@ -14,25 +14,25 @@ routers.get('/', (req, res) => {
 routers.post('/stripe', stripeCheck)
 
 // ? Products Routers
-routers.get('/products', prodCtrl.getProds)
-routers.post('/products', prodCtrl.addProd)
-routers.put('/products/:id', verifyToken, prodCtrl.updProd)
-routers.delete('/products/:id', verifyToken, prodCtrl.dltProduct)
-routers.get('/product/:id', prodCtrl.getProduct)
+routers.get('/api/products', prodCtrl.getProds)
+routers.post('/api/products', prodCtrl.addProd)
+routers.put('/api/products/:id', verifyToken, prodCtrl.updProd)
+routers.delete('/api/products/:id', verifyToken, prodCtrl.dltProduct)
+routers.get('/api/product/:id', prodCtrl.getProduct)
 
 // ? Categories Routers
-routers.get('/categories', prodCtrl.getCategories)
-routers.post('/categories', [verifyToken, isWebAdmin], prodCtrl.addCategory)
-routers.put('/categories/:id', [verifyToken, isWebAdmin], prodCtrl.updCategory)
-routers.delete('/categories/:id', [verifyToken, isWebAdmin], prodCtrl.dltCategory)
-routers.get('/categories/:id', prodCtrl.getProdByCat)
+routers.get('/api/categories', prodCtrl.getCategories)
+routers.post('/api/categories', [verifyToken, isWebAdmin], prodCtrl.addCategory)
+routers.put('/api/categories/:id', [verifyToken, isWebAdmin], prodCtrl.updCategory)
+routers.delete('/api/categories/:id', [verifyToken, isWebAdmin], prodCtrl.dltCategory)
+routers.get('/api/categories/:id', prodCtrl.getProdByCat)
 
 // ? Opinion Routes
-routers.get('/opinions',[verifyToken, isModerator], prodCtrl.getOpinions)
-routers.post('/opinions', prodCtrl.addOpinion)
-routers.delete('/opinions/:id', [verifyToken, isModerator], prodCtrl.dltOpinion)
-routers.get('/opinions/product/:id', prodCtrl.getProdOpinion)
-routers.get('/product/opinions/:id', prodCtrl.getOpinionProd)
+routers.get('/api/opinions',[verifyToken, isModerator], prodCtrl.getOpinions)
+routers.post('/api/opinions', prodCtrl.addOpinion)
+routers.delete('/api/opinions/:id', [verifyToken, isModerator], prodCtrl.dltOpinion)
+routers.get('/api/opinions/product/:id', prodCtrl.getProdOpinion)
+routers.get('/api/product/opinions/:id', prodCtrl.getOpinionProd)
 
 
 export default routers

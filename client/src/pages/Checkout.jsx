@@ -55,7 +55,7 @@ function CheckoutForm() {
       const { id } = paymentMethod
       try {
         const { data } = await axios.post(
-          'http://147.182.201.188:4000/stripe',
+          'http://localhost:4000/stripe',
           {
             id,
             amount: prod.price * 100,
