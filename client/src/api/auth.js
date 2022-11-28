@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'http://143.198.48.138:4000'
+const baseURL = 'http://147.182.201.188:4000'
 
 export const postRegister = async (newUser) => {
     return await axios.post(baseURL + '/register', newUser, {
