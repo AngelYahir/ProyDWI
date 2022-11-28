@@ -11,7 +11,7 @@ routers.get('/api', (req, res) => {
 })
 
 //? Stripe Route
-routers.post('/stripe', stripeCheck)
+routers.post('/api/stripe', stripeCheck)
 
 // ? Products Routers
 routers.get('/api/products', prodCtrl.getProds)

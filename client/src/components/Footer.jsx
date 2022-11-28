@@ -8,7 +8,7 @@ export function Footer() {
         <footer className="footer p-10 bg-neutral text-neutral-content">
             <div>
                 <img src={logo2} alt="" className='max-h-32'/>
-                <p> 2022 © G - Market <br/>Todos los derechos reservados.</p>
+                <p> 2022 © G - Market <br/>All rights reserved.</p>
             </div> 
             <div>
                 <span className="footer-title">Social</span> 

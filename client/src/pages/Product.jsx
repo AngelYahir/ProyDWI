@@ -94,7 +94,7 @@ export function Product() {
             {localStorage.getItem('user') &&
 
               <form className="opinion w-full" onSubmit={handleSubmit}>
-                <h1 className="text-2xl font-bold mb-8">Califica este producto</h1>
+                <h1 className="text-2xl font-bold mb-8">Rate this product</h1>
                 <div className="rating rating-lg">
                   <input type="radio" name="score" value={1} className="mask mask-star-2 bg-green-500" onChange={handleChange} />
                   <input type="radio" name="score" value={2} className="mask mask-star-2 bg-green-500" onChange={handleChange} />
@@ -102,13 +102,13 @@ export function Product() {
                   <input type="radio" name="score" value={4} className="mask mask-star-2 bg-green-500" onChange={handleChange} />
                   <input type="radio" name="score" value={5} className="mask mask-star-2 bg-green-500" onChange={handleChange} />
                 </div>
-                <textarea className="textarea textarea-primary w-full" name='comment' placeholder="¿Qué pienas de este producto?" onChange={handleChange}></textarea>
-                <button className="btn btn-primary w-36 mt-2" type='submit'>Calificar</button>
+                <textarea className="textarea textarea-primary w-full" name='comment' placeholder="What do you think about this product?" onChange={handleChange}></textarea>
+                <button className="btn btn-primary w-36 mt-2" type='submit'>Public Review</button>
               </form>
 
             }
 
-            <h1 className="text-2xl font-bold mb-8 mt-8">Opiniones de clientes</h1>
+            <h1 className="text-2xl font-bold mb-8 mt-8">Customer reviews</h1>
             {opinions.map((r) => (
               <>
                 <div className="rating mt-4">

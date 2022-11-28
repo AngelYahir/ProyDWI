@@ -51,11 +51,11 @@ export function Home() {
         <div className="hero-content flex-col lg:flex-row">
 
           <div>
-            <p className='text-2xl'>Compra - Venta</p>
+            <p className='text-2xl'>Sale Site</p>
             <h1 className='py-3 text-5xl md:text-7xl font-bold'>G-Market</h1>
-            <p className='text-2xl'>Una nueva experiencia en linea</p>
+            <p className='text-2xl'>A new online experience</p>
             <Link to='/products'>
-              <button className=' py-3 px-6 sm:w-[60%] my-4 btn btn-primary'>Explorar</button>
+              <button className=' py-3 px-6 sm:w-[60%] my-4 btn btn-primary'>Explore</button>
             </Link>
           </div>
           <img src={heroImg} className="max-w-xs sm:max-w-sm ml-5" />
@@ -94,10 +94,10 @@ export function Home() {
 
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Más comprados</h2>
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Most purchased</h2>
 
           <div className="w-full flex-none md:w-auto md:pl-6 mt-1 md:mt-0 ml-auto text-teal-600 text-sm font-medium">
-            <Link to='/products' className="hover:text-teal-800 cursor-pointer">Ver más productos</Link>
+            <Link to='/products' className="hover:text-teal-800 cursor-pointer">See more products</Link>
           </div>
           {renderProducts()}
         </div>
@@ -108,13 +108,13 @@ export function Home() {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             {!localStorage.getItem('isAuthenticated') 
-              ? <h1 className="mb-5 text-5xl font-bold">¡Crea una cuenta!</h1> 
-              : <h1 className="mb-5 text-5xl font-bold">¡Comienza a explorar!</h1>
+              ? <h1 className="mb-5 text-5xl font-bold">Create an account!</h1> 
+              : <h1 className="mb-5 text-5xl font-bold">Start exploring!</h1>
             }
-            <p className="mb-5">Comienza a comprar o vender de la manera más sencilla!</p>
+            <p className="mb-5">Start buying or selling in the easiest way!</p>
             {!localStorage.getItem('isAuthenticated')
-              ? <Link to='/inicio-sesion'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Vamos!</button> </Link>
-              : <Link to='/products'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Vamos!</button> </Link>
+              ? <Link to='/inicio-sesion'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Let's go!</button> </Link>
+              : <Link to='/products'> <button className="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-80 ...">Let's go!</button> </Link>
             }
           </div>
         </div>
