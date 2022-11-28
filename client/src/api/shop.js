@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = 'http://localhost:4000'
+const baseURL = 'http://143.198.48.138:4000'
 
 export const getProducts = async () => {
     return await axios.get(baseURL + '/products', {withCredentials: true})

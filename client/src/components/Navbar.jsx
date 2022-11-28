@@ -80,7 +80,7 @@ export function Navbar() {
 
                 {!session &&
                   <div className=''>
-                    <Link to='/inicio-sesion'>
+                    <Link to='/signin'>
                       <button className='btn btn-primary text-white max-h-5'>
                         Iniciar Sesion
                       </button>

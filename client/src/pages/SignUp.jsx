@@ -124,7 +124,7 @@ export function SignUp({session}) {
 						<div className="text-center">
 							<p className="inline-block text-sm text-blue-500 align-baseline" href="./register.html">
 								¿Ya tienes una cuenta? 
-								<Link to='/inicio-sesion'>
+								<Link to='/signin'>
 									<span className='hover:text-blue-800'> Inicia Sesión!</span>
 								</Link>
 							</p>

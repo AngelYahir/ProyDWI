@@ -75,7 +75,7 @@ export function Login({session}) {
 							<div className="text-center">
 								<p className="inline-block text-sm text-blue-500 align-baseline">
 									¿No tienes una cuenta?
-									<Link to='/registro'>
+									<Link to='/signup'>
 										<span className='hover:text-blue-800'> Crea una!</span>
 									</Link> 
 								</p>
